@@ -9,4 +9,4 @@ mvn clean package
 echo "$1 $2"
 ls -lrt
 ls 
-ls
+
