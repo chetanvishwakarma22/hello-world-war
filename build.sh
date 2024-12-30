@@ -10,5 +10,5 @@ echo "$1 $2"
 ls -lrt
 ls
 du -sh *
-ls -a
+ls 
 
