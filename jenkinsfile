@@ -2,12 +2,12 @@ pipeline {
     agent any 
     stages 
     {
-        stage('test') {
+        stage('checkout') {
             steps {
                sh 'https://github.com/chetanvishwakarma22/hello-world-war/'
             }
         }
-        stage('sample') {
+        stage('build') {
             steps {
                 sh 'cd hello-world-war'
                 sh 'mvn clean package'
