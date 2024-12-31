@@ -4,12 +4,13 @@ pipeline {
     {
         stage('test') {
             steps {
-                echo 'Hello World'
+               sh 'https://github.com/chetanvishwakarma22/hello-world-war/'
             }
         }
         stage('sample') {
             steps {
-                echo 'Welcome to Devops'
+                sh 'cd hello-world-war'
+                sh 'mvn clean package'
             }
         }
     }
