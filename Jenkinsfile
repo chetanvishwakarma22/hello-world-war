@@ -11,5 +11,5 @@ pipeline {
                 echo 'hello-world-war'
             }
         }
-    }
+    
 
