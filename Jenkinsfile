@@ -1,16 +1,4 @@
 pipeline {
-    agent { label 'slave' }
-    stages {
-        stage('Example') {
-            steps {
-                echo 'hello-world-war'
-      }
-}
-          stage('Example2') {
-             steps {
-                git  'hello-world-war'
-            }
-        }
         agent { label 'slave' 
     stages
     {
@@ -26,6 +14,9 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+        stage('deploy') {
+            steps { 
+                
      }
     }
 }
