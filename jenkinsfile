@@ -6,9 +6,9 @@ pipeline {
                 echo 'hello-world-war'
       }
 }
-          stage('Example2) {
+          stage('Example2') {
              steps {
-                echo 'Welcome to devops'
+                echo 'hello-world-war'
             }
         }
     }
