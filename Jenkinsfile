@@ -11,7 +11,7 @@ pipeline {
                 git  'hello-world-war'
             }
         }
-        agent { label 'slave2' }
+        agent { label 'slave' }
     stages 
     {
         stage('checkout') {
