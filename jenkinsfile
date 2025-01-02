@@ -5,7 +5,7 @@ pipeline {
         choice(name: 'ch', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 
     }
-    agent any 
+    agent { label 'slave1' 
     stages 
     {
         stage('checkout') {
