@@ -8,11 +8,6 @@ pipeline {
     agent { label 'slave2' }
     stages 
     {
-        stage('checkout') {
-            steps {
-               sh 'git clone https://github.com/chetanvishwakarma22/hello-world-war/'
-                }
-        }
         stage('build') {
             steps {
                 sh 'cd hello-world-war'
