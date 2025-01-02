@@ -11,14 +11,21 @@ pipeline {
                 git  'hello-world-war'
             }
         }
+        agent { label 'slave' }
+    stages 
+    {
         stage('checkout') {
-             steps {
-                sh 'git clone https://github.com/chetanvishwakarma22/hello-world-war/'
+            steps {
+               sh 'rm -rf hello-world-war'
+               sh 'git clone https://github.com/chetanvishwakarma22/hello-world-war/'
             }
-            stage('build') {
-             steps {
-                sh 'mvn clean install'
+        }
+        stage('build') {
+            steps {
+                sh 'cd hello-world-war'
+                sh 'mvn clean $cmd'
             }
-        }        
+        }
+
     }
 }
