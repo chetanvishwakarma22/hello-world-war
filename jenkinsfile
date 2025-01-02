@@ -8,7 +8,7 @@ pipeline {
 }
           stage('Example2) {
              steps {
-                echo 'hello-world-war'
+                echo 'Welcome to devops'
             }
         }
     }
