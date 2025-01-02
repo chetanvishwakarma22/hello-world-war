@@ -17,6 +17,7 @@ pipeline {
                 sh 'cp /opt/jenkins/workspace/jenkinsjob1/target/hello-world-war-1.0.0.war /var/lib/tomcat10/webapps'
             }
         }
+    }
             post {
     success {
         mail to: "chetan22vishwakarma@gmail.com",
