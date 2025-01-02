@@ -1,17 +1,15 @@
 pipeline {
-   parameters {
-        string(name: 'cmd', defaultValue: 'package', description: 'Who should I say hello to?')
-
-        choice(name: 'ch', choices: ['One', 'Two', 'Three'], description: 'Pick something')
-
-    }
     agent { label 'slave2' }
     stages 
     {
-        stage('build') {
+        stage('example') {
             steps {
-                sh 'cd hello-world-war'
-                sh 'mvn clean $cmd'
+                echo 'hello-world-war'
+      }
+        stage {
+          stage('example2){
+             steps {
+                echo 'hello-world-war'
             }
         }
     }
