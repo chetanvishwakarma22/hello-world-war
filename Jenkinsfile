@@ -8,8 +8,17 @@ pipeline {
 }
           stage('Example2') {
              steps {
-                echo 'hello-world-war'
+                git  'hello-world-war'
             }
         }
+        stage('checkout') {
+             steps {
+                sh 'git clone https://github.com/chetanvishwakarma22/hello-world-war/'
+            }
+            stage('build') {
+             steps {
+                sh 'mvn clean install'
+            }
+        }        
     }
 }
