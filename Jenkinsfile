@@ -19,5 +19,6 @@ pipeline {
         sh 'scp /var/lib/jenkins/workspace/jenkinsjob1/target/hello-world-war-1.0.0 /opt/apache-tomcat-10.1.34/webapps'
             }
      }
+    }      
     }
-
+}
