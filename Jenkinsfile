@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'slave2' }
+    agent { label 'slave' }
     stages {
         stage('Example') {
             steps {
@@ -8,7 +8,7 @@ pipeline {
 }
           stage('Example2') {
              steps {
-                echo 'hello-world-war'
+                echo 'welcome to devops'
             }
         }
     }
