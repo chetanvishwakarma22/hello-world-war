@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-               #sh 'rm -rf hello-world-war'
+               sh 'rm -rf hello-world-war'
                sh 'git clone https://github.com/chetanvishwakarma22/hello-world-war/'
             }
         }
@@ -29,6 +29,7 @@ pipeline {
              subject: "Jenkins Job Failed",
              body: "The Jenkins job failed. Check the logs for details."
     }
+}
 }
 }
 
