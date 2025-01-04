@@ -23,9 +23,19 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.4.0</version>
 			</plugin>
+
+			 <plugin>
+		            <groupId>org.sonarsource.scanner.maven</groupId>
+		            <artifactId>sonar-maven-plugin</artifactId>
+		            <version>4.0.0.4121</version> <!-- Or another compatible version -->
+		        </plugin>
+			
 		</plugins>
 	</build>
-
+	<!---add your own sonar account details -->
+	<properties>
+	    <sonar.projectKey>akshatha111_project1</sonar.projectKey>
+	    <sonar.organization>akshatha111</sonar.organization>
+	    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+</properties>
 </project>
-
-https://github.com/chetanvishwakarma22/hello-world-war/blob/master/pom.xml
