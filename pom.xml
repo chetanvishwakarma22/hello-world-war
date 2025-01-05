@@ -34,7 +34,9 @@
 	</build>
 	<!---add your own sonar account details -->
 	<properties>
-  <sonar.organization>chetanns</sonar.organization>
-  <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+	    <sonar.projectKey>chetanns_hello-world</sonar.projectKey>
+	    <sonar.organization>chetanns</sonar.organization>
+	    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 </properties>
 </project>
+
