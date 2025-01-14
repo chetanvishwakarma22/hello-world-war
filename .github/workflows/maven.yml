@@ -50,7 +50,7 @@ jobs:
 
       # Step 2: Verify Maven installation
       - name: Verify Maven installation
-        run:mvn-v
+        run: mvn -v
           
       # Build the project with Maven
       - name: Build with Maven
