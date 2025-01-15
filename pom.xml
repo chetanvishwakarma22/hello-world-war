@@ -8,7 +8,7 @@
 <distributionManagement>
 	<repository>
           <id>hello-world-war</id>
-	  <name>hello-world-war-libs-release</name>https://github.com/chetanvishwakarma22/hello-world-war/actions
+	  <name>hello-world-war-libs-release</name>
 	  <url>http://13.235.13.194:8082/artifactory/hello-world-war-libs-release/</url>
 	</repository>
 </distributionManagement>
