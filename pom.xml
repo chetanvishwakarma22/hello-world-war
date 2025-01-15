@@ -5,13 +5,13 @@
 	<artifactId>hello-world-war</artifactId>
 	<version>1.0.${env.GITHUB_RUN_NUMBER}</version>
 	<packaging>war</packaging>
-<distributionManagement>
-	<repository>
-          <id>hello-world-war</id>
-	  <name>hello-world-war-libs-release</name>
-	  <url>http://13.235.13.194:8082/artifactory/hello-world-war-libs-release/</url>
-	</repository>
-</distributionManagement>
+	<distributionManagement>
+	    <repository>
+	        <id>hello-world-war</id>
+	        <name>hello-world-war-libs-release</name>
+	        <url>http://13.232.179.127:8082/artifactory/hello-world-war-libs-release/</url>
+	    </repository>
+  	</distributionManagement>
 	<name>Hello World Web Application Repository</name>
 	<description>Simplest possible Java Webapp</description>
 
@@ -41,9 +41,8 @@
 	</build>
 	<!---add your own sonar account details -->
 	<properties>
-	    <sonar.projectKey>chetanns_hello-world</sonar.projectKey>
-	    <sonar.organization>chetanns</sonar.organization>
+	    <sonar.projectKey>shubhalokesh_hello-world-war</sonar.projectKey>
+	    <sonar.organization>shubha123</sonar.organization>
 	    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 </properties>
 </project>
-
