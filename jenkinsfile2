@@ -3,27 +3,38 @@ pipeline {
     environment {
         ARTIFACT_URL = 'http://13.126.190.58:8082/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/1.0.50/hello-world-war-1.0.50.war'
         TOMCAT_PATH = '/opt/apache-tomcat-10.1.34'
+        WAR_NAME = 'hello-world-war-1.0.50.war'
     }
     stages {
         stage('Download and Deploy Artifact') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'artifactory-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh """
-                    # Ensure Jenkins has permission to write in Tomcat's webapps directory
+                    echo "Ensuring correct permissions for Tomcat directories"
                     sudo chown -R jenkins:jenkins \$TOMCAT_PATH/webapps
-                    sudo chmod -R 775 \$TOMCAT_PATH/webapps
+                    sudo chown -R jenkins:jenkins \$TOMCAT_PATH/logs
+                    sudo chmod -R 777 \$TOMCAT_PATH/webapps
+                    sudo chmod -R 777 \$TOMCAT_PATH/logs
 
-                    # Navigate to webapps and clean up the old deployment
+                    echo "Checking if Tomcat is running..."
+                    if lsof -Pi :8080 -sTCP:LISTEN -t > /dev/null ; then
+                        echo "Tomcat is running. Stopping Tomcat..."
+                        cd \$TOMCAT_PATH/bin
+                        ./shutdown.sh
+                        sleep 10
+                    else
+                        echo "Tomcat is not running, skipping shutdown."
+                    fi
+
+                    echo "Cleaning up old deployments..."
+                    rm -rf \$TOMCAT_PATH/webapps/hello-world-war*
+
+                    echo "Downloading new WAR file..."
                     cd \$TOMCAT_PATH/webapps
-                    rm -rf hello-world-war*
-
-                    # Download the new WAR file
                     curl -L -u "\$USERNAME:\$PASSWORD" -O "\$ARTIFACT_URL"
 
-                    # Restart Tomcat
+                    echo "Starting Tomcat..."
                     cd \$TOMCAT_PATH/bin
-                    ./shutdown.sh
-                    sleep 10
                     ./startup.sh
                     """
                 }
