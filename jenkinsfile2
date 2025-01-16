@@ -11,7 +11,7 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'artifactory-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh """
                    
-                    cd /opt/apache-tomcat-10.1.34/webapps
+                    sudo chmod -R 755 /opt/apache-tomcat-10.1.34/
 
                     # Correct usage of environment variables for curl
                     curl -L -u "\$USERNAME:\$PASSWORD" -O "\$ARTIFACT_URL"
