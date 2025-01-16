@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI maven build
+name: Java CI with Maven
 
 on:
   push:
@@ -47,4 +47,4 @@ jobs:
           
       # Build the project with Maven
       - name: Build with Maven
-        run: mvn clean deploy
+        run: mvn clean deploy
