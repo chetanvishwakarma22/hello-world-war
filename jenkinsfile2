@@ -2,7 +2,6 @@ pipeline {
     agent any
     environment {
         ARTIFACT_URL = 'http://13.126.190.58:8082/artifactory/hello-world-war-libs-release/com/efsavage/hello-world-war/1.0.50/hello-world-war-1.0.50.war'
-                        
         TOMCAT_PATH = '/opt/apache-tomcat-10.1.34'
     }
     stages {
@@ -10,7 +9,8 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'artifactory-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh """
-                
+                   
+                    cd /opt/apache-tomcat-10.1.34/webapps
 
                     # Correct usage of environment variables for curl
                     curl -L -u "\$USERNAME:\$PASSWORD" -O "\$ARTIFACT_URL"
