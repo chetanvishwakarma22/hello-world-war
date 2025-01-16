@@ -5,19 +5,23 @@ pipeline {
         TOMCAT_PATH = '/opt/apache-tomcat-10.1.34'
     }
     stages {
-        stage('Download Artifact') {
+        stage('Download and Deploy Artifact') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'artifactory-credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh """
-                   
-                    cd /opt/apache-tomcat-10.1.34/webapps
+                    # Ensure Jenkins has permission to write in Tomcat's webapps directory
+                    sudo chown -R jenkins:jenkins \$TOMCAT_PATH/webapps
+                    sudo chmod -R 775 \$TOMCAT_PATH/webapps
 
-                    # Correct usage of environment variables for curl
+                    # Navigate to webapps and clean up the old deployment
+                    cd \$TOMCAT_PATH/webapps
+                    rm -rf hello-world-war*
+
+                    # Download the new WAR file
                     curl -L -u "\$USERNAME:\$PASSWORD" -O "\$ARTIFACT_URL"
 
-                    cd ..
-                    pwd
-                    cd bin/
+                    # Restart Tomcat
+                    cd \$TOMCAT_PATH/bin
                     ./shutdown.sh
                     sleep 10
                     ./startup.sh
