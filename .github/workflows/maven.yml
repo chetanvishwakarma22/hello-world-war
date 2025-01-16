@@ -31,7 +31,6 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-
       - name: Configure Maven settings
         run: |
           mkdir -p ~/.m2
@@ -48,4 +47,4 @@ jobs:
           
       # Build the project with Maven
       - name: Build with Maven
-        run: mvn clean deploy
+        run: mvn clean deploy
