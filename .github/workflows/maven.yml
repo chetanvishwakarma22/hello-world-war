@@ -4,9 +4,9 @@
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
 # separate terms of service, privacy policy, and support
-# documentation. 
+# documentation.
 
-name: Java CI with Maven
+name: Java CI maven build
 
 on:
   push:
@@ -19,17 +19,21 @@ jobs:
 
     runs-on: ubuntu-latest
 
-  steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 17
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
+    steps:
+      # Checkout the repository
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
-    - name: Configure Maven settings
-      run: |
+      # Set up Java
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+
+      - name: Configure Maven settings
+        run: |
           mkdir -p ~/.m2
           echo "<settings>
                   <servers>
@@ -39,7 +43,9 @@ jobs:
                       <password>${{ secrets.ARTIFACTORY_API_KEY }}</password>
                     </server>
                   </servers>
-                </settings>" > ~/.m2/settings.xml   
+                </settings>" > ~/.m2/settings.xml
         
-    - name: Build with Maven
-      run: mvn clean deploy
+          
+      # Build the project with Maven
+      - name: Build with Maven
+        run: mvn clean deploy
