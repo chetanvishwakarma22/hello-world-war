@@ -42,8 +42,8 @@
 	</build>
 	<!---add your own sonar account details -->
 	<properties>
-	    <sonar.projectKey>shubhalokesh_hello-world-war</sonar.projectKey>
-	    <sonar.organization>shubha123</sonar.organization>
+	    <sonar.projectKey>chetanns_hello-world</sonar.projectKey>
+	    <sonar.organization>chetanns</sonar.organization>
 	    <sonar.host.url>https://sonarcloud.io</sonar.host.url>
 </properties>
 </project>
