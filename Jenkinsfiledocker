@@ -6,7 +6,7 @@ pipeline {
         DOCKER_HUB_REPO = "chetanvishwakarma22/tomcat-maven_repo" 
         DOCKER_HUB_CREDENTIALS = "docker-hub-credentials" 
         IMAGE_TAG = "latest" 
-        WAR_FILE = "target/helloworld.war" 
+        #WAR_FILE = "target/helloworld.war" 
     }
     
     stages {
