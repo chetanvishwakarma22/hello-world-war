@@ -58,7 +58,7 @@ pipeline {
                 script {
                 
                     sh """
-                    docker run -d -p 8888:8080 ${DOCKER_HUB_REPO}:${IMAGE_TAG}
+                    docker run -d -p 8080:8080 ${DOCKER_HUB_REPO}:${IMAGE_TAG}
                     """
                 }
             }
