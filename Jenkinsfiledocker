@@ -5,7 +5,7 @@ pipeline {
         // Define environment variables
         DOCKER_HUB_REPO = "chetanvishwakarma22/tomcat-maven_repo" 
         DOCKER_HUB_CREDENTIALS = "docker-hub-credentials" 
-        IMAGE_TAG = "latest" 
+        IMAGE_TAG = "l.1" 
         
     }
     
@@ -58,7 +58,7 @@ pipeline {
                 script {
                 
                     sh """
-                    docker run -d -p 8082:8080 ${DOCKER_HUB_REPO}:${IMAGE_TAG}
+                    docker run -d -p 8088:8080 ${DOCKER_HUB_REPO}:${IMAGE_TAG}
                     """
                 }
             }
